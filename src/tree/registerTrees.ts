@@ -41,6 +41,13 @@ export function registerTrees(): void {
     ext.context.subscriptions.push(ext.imagesTreeView);
     registerCommand(imagesLoadMore, async (context: IActionContext, node: AzExtTreeItem) => ext.imagesTree.loadMore(node, context));
 
+    ext.podsRoot = new PodsTreeItem(undefined);
+    const podsLoadMore = 'vscode-containers.pods.loadmore';
+    ext.podsTree = new AzExtTreeDataProvider(ext.podsRoot, podsLoadMore);
+    ext.podsTreeView = vscode.window.createTreeView('vscode-containers.views.pods', { treeDataProvider: ext.podsTree, canSelectMany: true });
+    ext.context.subscriptions.push(ext.contextsTreeView);
+    registerCommand(podsLoadMore, async (context: IActionContext, node: AzExtTreeItem) => ext.podsTree.loadMore(node, context));
+
     const urtdp = new UnifiedRegistryTreeDataProvider(ext.context.globalState);
     ext.registriesRoot = urtdp;
     ext.registriesTreeView = vscode.window.createTreeView('vscode-containers.views.registries', { treeDataProvider: urtdp, showCollapseAll: true });

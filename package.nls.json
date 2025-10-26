@@ -317,6 +317,7 @@
     "vscode-containers.views.containers": "Containers",
     "vscode-containers.views.activityBar": "Containers",
     "vscode-containers.views.images": "Images",
+    "vscode-containers.views.pods": "Pods",
     "vscode-containers.views.registries": "Registries",
     "vscode-containers.views.networks": "Networks",
     "vscode-containers.views.volumes": "Volumes",

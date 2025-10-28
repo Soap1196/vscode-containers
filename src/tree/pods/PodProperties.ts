@@ -69,7 +69,7 @@ export function getPodPropertyValue(item: ListPodsItem, property: PodProperty): 
         case 'Status':
             return item.status?.replace(/(\d+ seconds?)|(Less than a second)/i, l10n.t('Less than a minute'));
         case 'Label':
-            return getLabelGroup(item, workspace.getConfiguration(configPrefix)?.get<string | undefined>('containers.groupByLabel', undefined), NonLabelGroupName);
+            return getLabelGroup(item, workspace.getConfiguration(configPrefix)?.get<string | undefined>('pods.groupByLabel', undefined), NonLabelGroupName);
         default:
             return getCommonPropertyValue(item, property);
     }

@@ -4,7 +4,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 import { AzExtParentTreeItem, AzExtTreeItem, AzureWizard, GenericTreeItem, IActionContext, parseError } from "@microsoft/vscode-azext-utils";
-import { ListContainersItem, ListContextItem, ListImagesItem, ListNetworkItem, ListVolumeItem, isCommandNotSupportedError } from "@microsoft/vscode-container-client";
+import { ListContainersItem, ListContextItem, ListImagesItem, ListNetworkItem, ListPodsItem, ListVolumeItem, isCommandNotSupportedError } from "@microsoft/vscode-container-client";
 import { ConfigurationTarget, ThemeColor, ThemeIcon, WorkspaceConfiguration, l10n, workspace } from "vscode";
 import { configPrefix } from "../constants";
 import { ext } from "../extensionVariables";
@@ -24,6 +24,7 @@ type DockerStatus = 'NotInstalled' | 'Installed' | 'Running';
 
 export type AnyContainerObject =
     ListContainersItem |
+    ListPodsItem |
     (ListImagesItem & { name?: undefined }) | // Pretend `ListImagesItem` has some always-undefined extra properties to keep TS happy
     ListNetworkItem |
     (ListVolumeItem & { id?: undefined }) | // Pretend `ListVolumeItem` has some always-undefined extra properties to keep TS happy
@@ -325,3 +326,5 @@ export function getTreeId(object: AnyContainerObject): string {
     // *and* change the ID when the state of the object changes
     return `${object.id}${objectName}${(object as ListContainersItem).state}${(object as ListContextItem).current}${(object as DatedDockerImage).outdated}`;
 }
+
+export function getPodId(object)

@@ -2898,6 +2898,11 @@
                     "icon": "resources/ContainerTools.svg"
                 },
                 {
+                    "id": "vscode-containers.views.pods",
+                    "name": "%vscode-containers.views.pods%",
+                    "icon": "resources/ContainerTools.svg"
+                },
+                {
                     "id": "vscode-containers.views.registries",
                     "name": "%vscode-containers.views.registries%",
                     "icon": "resources/ContainerTools.svg"
@@ -3153,7 +3158,7 @@
         "@microsoft/vscode-azext-azureauth": "^5.0.0",
         "@microsoft/vscode-azext-azureutils": "^4.0.0",
         "@microsoft/vscode-azext-utils": "^4.0.0",
-        "@microsoft/vscode-container-client": "^0.5.0",
+        "@microsoft/vscode-container-client": "file:../vscode-docker-extensibility/packages/vscode-container-client",
         "@microsoft/vscode-docker-registries": "^0.4.0",
         "@microsoft/vscode-processutils": "^0.2.0",
         "dayjs": "^1.11.7",
